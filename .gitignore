@@ -1,2 +1,4 @@
 
 .env
+.streamlit/secrets.toml
+notebook-ai-smart-digest/.env

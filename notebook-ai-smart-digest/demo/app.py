@@ -22,15 +22,23 @@ import sys
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
 import streamlit as st
 
 # ── Path setup ──────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-# Load .env automatically (API key set here overrides sidebar input)
-load_dotenv(ROOT / ".env")
+# Load API key: Streamlit Cloud secrets → .env file → sidebar input
+try:
+    os.environ.setdefault("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY", ""))
+except Exception:
+    pass
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / ".env")
+except ImportError:
+    pass
 
 from pipeline.embedder import NoteEmbedder
 from pipeline.vector_store import Note, NoteVectorStore
