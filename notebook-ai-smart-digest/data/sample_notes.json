@@ -1,0 +1,86 @@
+[
+  {
+    "id": "note_001",
+    "title": "Spaced Repetition & The Ebbinghaus Curve",
+    "content": "The Ebbinghaus Forgetting Curve shows that we forget roughly 70% of new information within 24 hours unless actively reinforced. Spaced repetition systems (SRS) like Anki counter this by scheduling reviews at increasing intervals — 1 day, 3 days, 7 days, 21 days. Studies show SRS can improve long-term retention by up to 200%. Key insight: the timing of review matters more than the duration. Reviewing at the point of forgetting is maximally efficient.",
+    "created_at": "2025-03-10T09:15:00",
+    "tags": ["learning", "memory", "productivity"]
+  },
+  {
+    "id": "note_002",
+    "title": "RAG Architecture for Production Systems",
+    "content": "Retrieval-Augmented Generation (RAG) grounds LLM responses in user-provided documents, dramatically reducing hallucinations. Core components: (1) Document chunking — split docs into ~512 token chunks with overlap. (2) Embedding model — converts chunks to vector representations. (3) Vector database (pgvector, FAISS, Weaviate) — stores and searches embeddings via cosine similarity. (4) LLM with retrieved context — generates answer from top-k retrieved chunks. Key metric: retrieval precision at k=5. Production gotcha: chunk size significantly impacts retrieval quality.",
+    "created_at": "2025-03-11T14:30:00",
+    "tags": ["AI", "engineering", "LLM", "architecture"]
+  },
+  {
+    "id": "note_003",
+    "title": "Mobile App Retention Benchmarks 2025",
+    "content": "Industry benchmarks for mobile utility apps: D1 retention ~35-45%, D7 ~20-30%, D30 ~10-15%. Push notification engaged users show 2x higher D30 retention vs non-push users. Apps that deliver daily value (weather, news, finance) achieve DAU/MAU ratios of 40-60%. Note-taking apps average only 8-12% DAU/MAU — the post-capture engagement gap. Key lever: apps that create daily habit loops (streaks, digests, reminders) outperform by 3x on D90 retention.",
+    "created_at": "2025-03-12T10:00:00",
+    "tags": ["product", "metrics", "mobile", "retention"]
+  },
+  {
+    "id": "note_004",
+    "title": "LLM Cost Optimization Strategies",
+    "content": "Three main levers for LLM cost reduction: (1) Model routing — classify query complexity and route simple queries to smaller models (GPT-4o-mini at $0.15/1M tokens vs GPT-4o at $5/1M tokens — 33x cheaper). (2) Semantic caching — cache responses for semantically similar queries using cosine similarity threshold ~0.95. Can reduce API calls by 30-50% for common use cases. (3) Prompt compression — remove redundant context, use system prompts efficiently. Combined, these techniques can reduce inference costs by 60-70% at scale.",
+    "created_at": "2025-03-12T16:45:00",
+    "tags": ["AI", "cost", "engineering", "LLM", "optimization"]
+  },
+  {
+    "id": "note_005",
+    "title": "Freemium Conversion Best Practices",
+    "content": "Effective freemium conversion requires hitting the 'aha moment' before hitting the paywall. Data from top apps: users who experience core value within first session convert at 3x the rate of those who don't. Optimal free tier: enough value to build habit, clear limitation that creates upgrade motivation. SaaS benchmarks: free-to-paid conversion 2-5% (broad), 8-12% for feature-gated premium (power users). Upgrade prompts convert best at: (1) moment of value delivery, (2) natural limit reached, (3) social proof triggers.",
+    "created_at": "2025-03-13T11:20:00",
+    "tags": ["product", "monetization", "growth"]
+  },
+  {
+    "id": "note_006",
+    "title": "Transformer Architecture Fundamentals",
+    "content": "Transformers revolutionized NLP with the self-attention mechanism. Unlike RNNs, transformers process all tokens in parallel, enabling massive scale. Self-attention: each token attends to all other tokens, weighted by relevance (Q·K^T / sqrt(d_k)). Multi-head attention allows the model to attend to different representation subspaces simultaneously. Positional encoding injects sequence order since attention is order-invariant. BERT uses encoder-only (bidirectional), GPT uses decoder-only (causal). Key insight: scale law — model capability grows predictably with parameters, data, and compute.",
+    "created_at": "2025-03-13T15:00:00",
+    "tags": ["AI", "deep learning", "NLP", "architecture"]
+  },
+  {
+    "id": "note_007",
+    "title": "Product-Market Fit Signals",
+    "content": "Sean Ellis test: 'How disappointed would you be if you could no longer use this product?' — if >40% say 'very disappointed', you likely have PMF. Quantitative signals: organic growth >30% MoM, NPS >50, D30 retention above category benchmark, payback period <12 months. Qualitative: users defend the product, use language like 'I can't live without this', spontaneous sharing. Common PMF trap: confusing early adopter enthusiasm with mainstream PMF. Cohort retention curves should flatten, not continue declining.",
+    "created_at": "2025-03-14T09:30:00",
+    "tags": ["product", "strategy", "startup"]
+  },
+  {
+    "id": "note_008",
+    "title": "Vector Embeddings & Semantic Search",
+    "content": "Vector embeddings encode semantic meaning as dense numerical vectors. Similar concepts cluster together in embedding space — 'king' - 'man' + 'woman' ≈ 'queen'. Modern embedding models (OpenAI text-embedding-3-small, sentence-transformers all-MiniLM-L6-v2) produce 384-1536 dimension vectors. Cosine similarity measures angle between vectors: score of 1 = identical, 0 = unrelated, -1 = opposite. For production: normalize embeddings first, then use dot product (faster than full cosine). FAISS enables billion-scale similarity search with IVF + PQ compression.",
+    "created_at": "2025-03-14T14:00:00",
+    "tags": ["AI", "NLP", "engineering", "search"]
+  },
+  {
+    "id": "note_009",
+    "title": "Habit Formation & Behavioral Design",
+    "content": "Nir Eyal's Hook Model: Trigger → Action → Variable Reward → Investment. Variable rewards (unpredictable, curiosity-driven) are more powerful than fixed rewards — the 'slot machine' effect. Habit stacking: attach new behaviors to existing routines (e.g., 'after my morning coffee, I open my notes'). For apps: internal triggers (emotions, needs) are more powerful than external (push notifications). Minimum viable habit: 2-minute rule — if a habit takes less than 2 minutes, it becomes frictionless. Streaks and loss aversion (don't break the chain) are powerful retention mechanics.",
+    "created_at": "2025-03-15T10:15:00",
+    "tags": ["psychology", "product", "UX", "retention"]
+  },
+  {
+    "id": "note_010",
+    "title": "A/B Testing Statistical Fundamentals",
+    "content": "A/B testing requires: (1) sufficient sample size — use power analysis (typically 80% power, α=0.05). Rule of thumb: ~1000 users per variant minimum. (2) Single metric focus — avoid multiple testing problem (Bonferroni correction if testing multiple metrics). (3) Full exposure period — run for at least 2 full business cycles to account for weekly patterns. Key mistakes: peeking at results early (inflates false positive rate), stopping when you see significance, ignoring practical significance vs statistical significance. Sequential testing (SPRT) allows valid early stopping.",
+    "created_at": "2025-03-15T16:30:00",
+    "tags": ["data science", "product", "experimentation", "statistics"]
+  },
+  {
+    "id": "note_011",
+    "title": "On-Device AI & Edge Inference",
+    "content": "On-device inference eliminates API costs and latency for deployed models. Apple Intelligence (A17 Pro+) runs 3B parameter models locally. Gemini Nano (Android) handles summarization, Q&A, and grammar tasks on-device. Quantization reduces model size: INT8 = 4x smaller than FP32, INT4 = 8x smaller, minimal accuracy loss for most tasks. Benchmark: on-device Phi-3-mini achieves 60-70% of GPT-4 quality at 0 marginal cost and <200ms latency. Ideal use cases: real-time grammar, basic summarization, classification, translation for common languages.",
+    "created_at": "2025-03-16T11:00:00",
+    "tags": ["AI", "mobile", "engineering", "optimization"]
+  },
+  {
+    "id": "note_012",
+    "title": "Knowledge Graph Applications in AI",
+    "content": "Knowledge graphs represent entities and their relationships as a graph structure (nodes = entities, edges = relationships). Neo4j and Amazon Neptune are leading graph databases. In AI applications, knowledge graphs enhance LLMs by: (1) providing structured reasoning paths, (2) reducing hallucinations via grounded facts, (3) enabling multi-hop reasoning. Graph RAG combines vector similarity search with graph traversal — 40% improvement on multi-hop QA benchmarks vs standard RAG. Useful for personal knowledge management: notes → concepts → connections.",
+    "created_at": "2025-03-16T15:30:00",
+    "tags": ["AI", "knowledge management", "engineering", "graphs"]
+  }
+]
