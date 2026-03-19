@@ -1,7 +1,6 @@
 # Smart Daily Digest — Technical Implementation
 
-> **Supplementary coding project** for the AppNation New Grad Product Specialist case study.
->
+
 > The case study proposed *Smart Daily Digest* as a high-impact feature for NotebookAI.
 > This repository is the **working technical proof** of that proposal — every hypothesis
 > made in the case is validated here with real code, real embeddings, and real LLM calls.
